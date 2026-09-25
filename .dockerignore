@@ -1,0 +1,12 @@
+.git
+.DS_Store
+node_modules
+dist
+backend/node_modules
+backend/dist
+simulator/node_modules
+simulator/dist
+blockchain/node_modules
+blockchain/target
+**/.env
+**/secrets.h

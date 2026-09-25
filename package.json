@@ -1,0 +1,42 @@
+{
+  "name": "breezo-network",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 4001",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview --host 0.0.0.0",
+    "frontend": "npm run dev",
+    "backend": "npm --prefix backend run dev",
+    "seed:admin": "npm --prefix backend run seed:admin",
+    "simulate": "npm --prefix simulator run simulate --",
+    "blockchain": "cd blockchain && anchor test",
+    "test": "npm --prefix backend test && TSX_TSCONFIG_PATH=tsconfig.app.json node --import tsx --test tests/*.test.tsx"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "axios": "^1.7.9",
+    "lucide-react": "^1.48.0",
+    "leaflet": "^1.9.4",
+    "react-leaflet": "^5.0.0",
+    "socket.io-client": "^4.8.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.1.1",
+    "recharts": "^3.10.1",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "tsx": "^4.19.2",
+    "@types/leaflet": "^1.9.20",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}

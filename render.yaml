@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: breezo-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "10000"
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: SENSOR_ENCRYPTION_KEY
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: SOLANA_RPC_URL
+        value: https://api.devnet.solana.com
+      - key: SOLANA_PROGRAM_ID
+        sync: false
+      - key: SOLANA_REWARD_MINT
+        sync: false

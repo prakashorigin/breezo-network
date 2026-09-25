@@ -1,0 +1,52 @@
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - breezo-mongo:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 3s
+      retries: 15
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+      PORT: 6001
+      MONGO_URI: mongodb://mongo:27017/breezo_network
+      JWT_SECRET: ${JWT_SECRET:-local-compose-secret-change-this-32-chars}
+      CLIENT_URL: http://localhost:4001
+      SENSOR_ENCRYPTION_KEY: ${SENSOR_ENCRYPTION_KEY:-local-compose-encryption-key-change-this}
+      SOLANA_RPC_URL: https://api.devnet.solana.com
+      SOLANA_PROGRAM_ID: ${SOLANA_PROGRAM_ID:-}
+      SOLANA_REWARD_MINT: ${SOLANA_REWARD_MINT:-}
+    ports:
+      - "6001:6001"
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+    restart: unless-stopped
+    environment:
+      VITE_API_URL: http://localhost:6001/api
+      VITE_SOCKET_URL: http://localhost:6001
+      VITE_SOLANA_NETWORK: devnet
+      VITE_SOLANA_RPC_URL: https://api.devnet.solana.com
+    ports:
+      - "4001:4001"
+    depends_on:
+      - backend
+
+volumes:
+  breezo-mongo:

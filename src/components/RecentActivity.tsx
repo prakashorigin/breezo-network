@@ -1,0 +1,6 @@
+import { Activity, AlertTriangle, Radio, Wifi, WifiOff } from "lucide-react";
+export type ActivityItem = { id: string; sensorId: string; label: string; timestamp: string; tone: "telemetry" | "connected" | "warning" | "offline" };
+const icons = { telemetry: Activity, connected: Wifi, warning: AlertTriangle, offline: WifiOff };
+export function RecentActivity({ items, demo }: { items: ActivityItem[]; demo: boolean }) {
+  return <section className="panel activity-panel"><div className="panel-heading"><div><span className="eyebrow">NETWORK EVENT STREAM</span><h2>Recent activity</h2><p>{demo ? "Illustrative sample events" : "Events received from the live service"}</p></div><span className={`live-pill ${demo ? "demo" : "offline"}`}><i />{demo ? "SAMPLE" : "API EVENTS"}</span></div><div className="activity-list">{items.slice(0, 4).map((item) => { const Icon = icons[item.tone]; return <div className="activity-item" key={item.id}><span className={`activity-icon ${item.tone}`}><Icon size={14} /></span><div className="activity-copy"><strong>{item.sensorId}</strong><span>{item.label}</span></div><time>{new Date(item.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}</time></div>; })}{!items.length && <div className="activity-empty"><Radio size={16} /> Waiting for sensor events</div>}</div></section>;
+}

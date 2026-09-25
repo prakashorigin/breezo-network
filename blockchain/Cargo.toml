@@ -1,0 +1,3 @@
+[workspace]
+members = ["programs/breezo_rewards"]
+resolver = "2"

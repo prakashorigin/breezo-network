@@ -1,0 +1,19 @@
+[features]
+seeds = false
+skip-lint = false
+
+[programs.localnet]
+breezo_rewards = "Drjkw9tB67BavRW1KVVADTqVKVFMkSjtj9Mgwnsz8mZx"
+
+[programs.devnet]
+breezo_rewards = "Drjkw9tB67BavRW1KVVADTqVKVFMkSjtj9Mgwnsz8mZx"
+
+[provider]
+cluster = "Localnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "node --import tsx --test tests/*.ts"
+
+[workspace]
+members = ["programs/breezo_rewards"]

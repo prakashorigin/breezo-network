@@ -1,0 +1,2 @@
+import { ArrowLeft, CircleAlert } from "lucide-react";
+export default function NotFound() { return <div className="not-found-panel"><CircleAlert size={26} /><span className="eyebrow">404 · ROUTE NOT FOUND</span><h1>This page isn’t on the map.</h1><p>The address may have changed or the page may not be available.</p><button className="primary-button" onClick={() => window.dispatchEvent(new CustomEvent("breezo:navigate", { detail: "/dashboard" }))}><ArrowLeft size={15} /> Back to overview</button></div>; }

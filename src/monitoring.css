@@ -1,0 +1,24 @@
+.status-dot-muted { width: 7px; height: 7px; flex: 0 0 auto; border-radius: 50%; background: #717a74; }
+.activity-panel { margin-top: 13px; padding: 15px; }
+.activity-panel .panel-heading { align-items: center; }
+.activity-list { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 9px; margin-top: 13px; }
+.activity-item { min-width: 0; display: flex; align-items: center; gap: 8px; padding: 9px; border: 1px solid #252e29; border-radius: 7px; background: #111613; }
+.activity-icon { width: 26px; height: 26px; flex: 0 0 26px; display: grid; place-items: center; border-radius: 6px; }
+.activity-icon.telemetry { color: #83deb0; background: #193125; }
+.activity-icon.connected { color: #85dba4; background: #193023; }
+.activity-icon.warning { color: #e3bc70; background: #2d2518; }
+.activity-icon.offline { color: #929d95; background: #262b27; }
+.activity-copy { min-width: 0; flex: 1; display: grid; gap: 3px; }
+.activity-copy strong { color: #cdd8d0; font: 9px var(--mono); overflow: hidden; text-overflow: ellipsis; }
+.activity-copy span { color: #879289; font-size: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.activity-item time { color: #657168; font: 8px var(--mono); white-space: nowrap; }
+.activity-empty { grid-column: 1/-1; display: flex; align-items: center; justify-content: center; gap: 7px; padding: 18px; color: #76827a; font-size: 9px; }
+.role-select { padding: 5px 7px; border: 1px solid #2e3932; border-radius: 5px; color: #afd8bb; background: #151c17; font: 9px var(--mono); }
+.screen-loading { min-height: 100vh; display: grid; place-items: center; color: #8ee2b2; background: #080b0a; font: 10px var(--mono); letter-spacing: .08em; }
+.map-provider-label { padding: 7px 9px; border: 1px solid #29332d; border-radius: 5px; color: #a0aca3; background: #111714; font-size: 9px; }
+.aqi-marker-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 17px; min-height: 38px; padding: 8px 7px 2px; color: #87938b; font-size: 9px; }
+.aqi-marker-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.aqi-marker-legend i { width: 7px; height: 7px; border-radius: 50%; }
+.marker-good { background: #69d6a5; }.marker-moderate { background: #e8cc69; }.marker-unhealthy { background: #ed9b60; }.marker-danger { background: #e35f67; }.marker-offline { background: #68716f; }
+@media (max-width: 1100px) { .activity-list { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 520px) { .activity-list { grid-template-columns: 1fr; }.activity-panel { padding: 12px; } }
