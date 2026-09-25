@@ -1,5 +1,5 @@
 # BREEZO Network
-
+NOT COMPLETED..................................**********
 BREEZO is a real-time air quality monitoring workspace for ESP32 sensor nodes. It combines a React dashboard, an authenticated Express API, MongoDB telemetry history, Socket.IO updates, a signed sensor simulator, and a Solana Anchor program scaffold for sensor ownership and SPL contribution rewards.
 
 > The dashboard's sample readings are explicitly labeled and only appear when the API is unavailable. A connected API with no registered devices displays an empty fleet. Blockchain pages report wallet connection and Devnet balance only; no transaction is claimed until a deployed program actually confirms one.
